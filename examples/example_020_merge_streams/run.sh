@@ -10,14 +10,20 @@ rm -rf $local_dir/logs
 mkdir $local_dir/logs
 
 # Setup container
+docker exec -ti matiz-materialized sh -c "rm -rf $container_dir"
+docker exec -ti matiz-materialized sh -c "mkdir -p $container_dir/code"
+docker exec -ti matiz-materialized sh -c "mkdir -p $container_dir/scratch"
+docker cp $local_dir/code/code_for_materialized.sh matiz-materialized:$container_dir/code/code_for_materialized.sh
+docker exec -dti matiz-materialized sh -c "$container_dir/code/code_for_materialized.sh $container_dir/scratch"
+
 docker exec -ti matiz-tester sh -c "rm -rf $container_dir"
 docker exec -ti matiz-tester sh -c "mkdir -p $container_dir/code"
 docker exec -ti matiz-tester sh -c "mkdir -p $container_dir/results"
 docker exec -ti matiz-tester sh -c "mkdir -p $container_dir/scratch"
 docker exec -ti matiz-tester sh -c "mkdir -p $container_dir/logs"
-docker cp $local_dir/code/code.sh matiz-tester:$container_dir/code/code.sh
+docker cp $local_dir/code/code_for_tester.sh matiz-tester:$container_dir/code/code_for_tester.sh
 
-docker exec -ti matiz-tester sh -c "$container_dir/code/code.sh $container_dir/results/results.txt $container_dir/logs/logs.txt $container_dir/scratch"
+docker exec -ti matiz-tester sh -c "$container_dir/code/code_for_tester.sh $container_dir/results/results.txt $container_dir/logs/logs.txt $container_dir/scratch"
 docker cp matiz-tester:$container_dir/results/results.txt $local_dir/results/results.txt
 docker cp matiz-tester:$container_dir/logs/logs.txt $local_dir/logs/logs.txt
 
