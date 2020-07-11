@@ -1,3 +1,3 @@
 #!/bin/bash
 
-$(dirname $0)/create_test/run.sh
+$(dirname $0)/materialized_is_running_test/run.sh

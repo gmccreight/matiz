@@ -9,7 +9,7 @@
 #
 # You should expect to see the following at the end of the run:
 #
-# OK - installation_and_configuration_tests/create_test
+# OK - installation_and_configuration_tests/materialized_is_running_test
 #
 # After you have established that things are working ok, you can run examples,
 # open a console, etc.
@@ -26,7 +26,4 @@ $dir/manage/0010-remove-containers.sh
 $dir/manage/0020-remove-images.sh
 $dir/manage/0030-build-images.sh
 $dir/manage/0040-start-containers.sh
-# $dir/installation_and_configuration_tests/run.sh
-
-sleep 5
-docker exec -ti matiz-tester sh -c "psql -h matiz-materialized -p 6875 materialize"
+$dir/installation_and_configuration_tests/run.sh
