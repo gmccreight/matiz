@@ -11,6 +11,10 @@
 #
 # OK - installation_and_configuration_tests/materialized_is_running_test
 #
+# Then it will run the examples
+#
+# OK - examples/example_010_from_site_join_sum
+#
 # After you have established that things are working ok, you can run examples,
 # open a console, etc.
 #
@@ -27,3 +31,4 @@ $dir/manage/0020-remove-images.sh
 $dir/manage/0030-build-images.sh
 $dir/manage/0040-start-containers.sh
 $dir/installation_and_configuration_tests/run.sh
+$dir/examples/run.sh

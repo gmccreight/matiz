@@ -1,7 +1,7 @@
 #!/bin/bash
 
 local_dir=$(dirname $0)
-container_dir=/installation_and_configuration_tests/example_from_site_test
+container_dir=/examples/example_010_from_site_join_sum
 
 # Cleanup local
 rm -rf $local_dir/results
@@ -22,7 +22,7 @@ docker cp matiz-tester:$container_dir/logs/logs.txt $local_dir/logs/logs.txt
 
 if cmp -s $local_dir/expected_results.txt $local_dir/results/results.txt
 then
-  echo OK - installation_and_configuration_tests/example_from_site_test
+  echo OK - examples/example_010_from_site_join_sum
 else
-  echo NOT OK - installation_and_configuration_tests/example_from_site_test
+  echo NOT OK - examples/example_010_from_site_join_sum
 fi
