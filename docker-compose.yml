@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  matiz-materialized:
+    image: matiz-materialized:latest
+    container_name: matiz-materialized
+    hostname: matiz-materialized
+    ports:
+      - "6875:6875"
+
+  matiz-tester:
+    image: matiz-tester:latest
+    container_name: matiz-tester
+    hostname: matiz-tester
+    tty: true
