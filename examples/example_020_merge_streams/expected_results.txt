@@ -1,5 +1,5 @@
- num_codes 
------------
-        10
+ num_codes |  extra_info  
+-----------+--------------
+        10 | info for 499
 (1 row)
 

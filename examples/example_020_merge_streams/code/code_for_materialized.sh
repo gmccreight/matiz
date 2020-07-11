@@ -21,15 +21,16 @@ EOF
 chmod 755 $scratch_dir/stream_1_generator.sh
 
 cat << EOF > $scratch_dir/stream_2_generator.sh
-for i in \`seq 1 50\`; do
-  echo data: {\"id\":\$i} >> $stream_2_file
-  sleep 0.2
+for i in \`seq 1 500\`; do
+  echo data: {\"id\":\$i, \"extra_info\": \"info for \$i\"} >> $stream_2_file
+  sleep 0.01
 done
 EOF
 
 chmod 755 $scratch_dir/stream_2_generator.sh
 
 $scratch_dir/stream_1_generator.sh &
+sleep 1
 $scratch_dir/stream_2_generator.sh &
 
 # Just checking the data
