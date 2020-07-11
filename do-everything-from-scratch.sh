@@ -26,9 +26,12 @@ set -e
 
 dir=$(dirname $0)
 
+$dir/manage/0005-shut-down-docker-compose-if-running.sh
 $dir/manage/0010-remove-containers.sh
 $dir/manage/0020-remove-images.sh
 $dir/manage/0030-build-images.sh
 $dir/manage/0040-start-containers.sh
 $dir/installation_and_configuration_tests/run.sh
 $dir/examples/run.sh
+
+echo "if you would like to run the examples again, just type: ./examples/run.sh"
