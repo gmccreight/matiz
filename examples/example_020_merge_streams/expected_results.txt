@@ -1,5 +1,5 @@
- num_codes |  extra_info  
------------+--------------
-        10 | info for 499
+ num_codes |  s2_extra_info  |  s3_extra_info  
+-----------+-----------------+-----------------
+        10 | s2 info for 499 | s3 info for 499
 (1 row)
 
