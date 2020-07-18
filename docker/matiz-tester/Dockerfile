@@ -8,8 +8,11 @@ FROM python:3.8.3-slim-buster
 LABEL author="Gordon McCreight" email="gordon@mccreight.com"
 LABEL version="0.1"
 
+RUN apt-get update
+RUN apt-get install -y tmux
+
 # materialized acts like Postgres, so you will need psql to interact with it
-RUN apt-get update && apt-get install -y postgresql-client
+RUN apt-get install -y postgresql-client
 
 # Fix the value of PYTHONHASHSEED
 # Note: this is needed when you use Python 3.3 or greater

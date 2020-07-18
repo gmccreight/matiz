@@ -8,7 +8,9 @@ FROM python:3.8.3-slim-buster
 LABEL author="Gordon McCreight" email="gordon@mccreight.com"
 LABEL version="0.1"
 
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update
+RUN apt-get install -y curl
+RUN apt-get install -y tmux
 
 RUN curl -L https://downloads.mtrlz.dev/materialized-v0.3.1-x86_64-unknown-linux-gnu.tar.gz \
     | tar -xzC /usr/local --strip-components=1
